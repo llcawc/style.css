@@ -1,0 +1,44 @@
+{
+  "name": "style.css",
+  "version": "0.0.1",
+  "description": "typical styling of html files 24.12.12",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc -p ./vendor/colormode/ts",
+    "dev": "gulp dev",
+    "build": "gulp build",
+    "serve": "passerve",
+    "lint": "stylelint vendor/style/tiny/*.css",
+    "lint-fix": "stylelint vendor/style/tiny/*.css --fix"
+  },
+  "dependencies": {
+    "isomorphic-dompurify": "^2.19.0",
+    "marked": "^15.0.3",
+    "terser": "^5.37.0",
+    "through2": "^4.0.2"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "autoprefixer": "^10.4.20",
+    "cssnano": "^7.0.6",
+    "del": "^8.0.0",
+    "gulp": "^5.0.0",
+    "gulp-postcss": "^10.0.0",
+    "gulp-replace": "^1.1.4",
+    "passerve": "^1.1.5",
+    "postcss": "^8.4.49",
+    "postcss-import": "^16.1.0",
+    "postcss-inline-svg": "^6.0.0",
+    "rollup": "^4.28.1",
+    "stylelint": "^16.11.0",
+    "stylelint-config-standard": "^36.0.1",
+    "typescript": "^5.7.2"
+  },
+  "browserslist": [
+    ">= 0.5%",
+    "last 2 major versions",
+    "not dead"
+  ]
+}

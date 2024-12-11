@@ -1,0 +1,7 @@
+/**
+ * Made based on water.css.
+ * Use the ".dark" class in the "html" selector to enable the dark scheme.
+ */
+
+@import url("./parts/_variables.css");
+@import url("./parts/_core.css");

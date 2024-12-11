@@ -1,0 +1,6 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "rules": {
+    "unit-allowed-list": ["deg", "%", "em", "px", "rem", "ms", "s"]
+  }
+}

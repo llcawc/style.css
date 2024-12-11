@@ -1,0 +1,7 @@
+/**
+ * Made based on water.css.
+ * Forced dark theme version
+ */
+
+@import url("./parts/_variables-dark.css");
+@import url("./parts/_core.css");

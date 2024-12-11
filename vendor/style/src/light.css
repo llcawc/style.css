@@ -1,0 +1,7 @@
+/**
+ * Made based on water.css.
+ * Forced light theme version
+ */
+
+@import url("./parts/_variables-light.css");
+@import url("./parts/_core.css");
