@@ -1,2 +1,2 @@
-vendor/**/dist/**/*.css
-dist/**/*.css
+libs/**/*.css
+**/dist/*.css
