@@ -80,7 +80,7 @@ export default function colorSwitcher() {
             let theme = '';
             [...Array.from(buttonSwicher.children)].forEach((el) => {
                 if (!el.classList.contains('hidden')) {
-                    let attr = el.attributes.getNamedItem('data-mode');
+                    const attr = el.attributes.getNamedItem('data-mode');
                     if (attr) {
                         currentMode = attr.value;
                     }

@@ -96,7 +96,7 @@ export default function colorSwitcher(): void {
       // берем имя темы из не скрытой картинки кнопки - это текущее положение переключателя
       ;[...Array.from(buttonSwicher.children)].forEach((el) => {
         if (!el.classList.contains('hidden')) {
-          let attr = el.attributes.getNamedItem('data-mode')
+          const attr = el.attributes.getNamedItem('data-mode')
           if (attr) {
             currentMode = attr.value
           } else {
