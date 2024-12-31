@@ -1,15 +1,15 @@
 /* color mode switcher */
 
 html {
-  --cm-bg: #fff;
-  --cm-text: #232429;
-  --cm-focus: rgba(92 173 214 / 70%);
+  --cm-bg: transparent; /* #fff; */
+  --cm-text: #fcd34d; /* #232429; */
+  --cm-focus: transparent; /* rgba(92 173 214 / 70%); */
 }
 
 html.dark {
-  --cm-bg: #232429;
+  --cm-bg: transparent; /* #232429; */
   --cm-text: #deded3;
-  --cm-focus: rgba(0 136 204 / 70%);
+  --cm-focus: transparent; /* rgba(0 136 204 / 70%); */
 }
 
 .color-switcher {
@@ -70,8 +70,7 @@ html.dark {
 
 .color-switcher button:focus,
 .color-switcher button:focus-visible {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+  outline: 0;
   box-shadow: 0 0 0 2px var(--cm-focus);
 }
 
