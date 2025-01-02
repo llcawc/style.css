@@ -1,16 +1,16 @@
 {
   "name": "style.css",
-  "version": "0.0.1",
-  "description": "typical styling of html files / 24.12.27",
+  "version": "0.0.2",
+  "description": "typical styling of html files / 25.01.02",
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "tsc": "tsc -p ./colormode/src",
-    "dev": "gulp dev",
-    "build": "gulp build",
-    "serve": "passerve -d test",
     "lint": "stylelint style/src/**/*.css",
-    "lint-fix": "stylelint style/src/**/*.css --fix"
+    "lint-fix": "stylelint style/src/**/*.css --fix",
+    "tsc": "tsc -p ./colormode/src",
+    "test": "gulp test",
+    "serve": "passerve -d test",
+    "build": "gulp build"
   },
   "dependencies": {
     "terser": "^5.37.0",
@@ -28,6 +28,9 @@
     "postcss": "^8.4.49",
     "postcss-import": "^16.1.0",
     "postcss-inline-svg": "^6.0.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-embed": "^0.4.15",
+    "prettier-plugin-organize-imports": "^4.1.0",
     "rollup": "^4.29.1",
     "stylelint": "^16.12.0",
     "stylelint-config-standard": "^36.0.1",

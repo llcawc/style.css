@@ -1,5 +1,5 @@
-# typical styling of html files
+# типовые стили для простых html файлов
 
 ---
 
-MIT License. ©2024 pasmurno by [llcawc](https://github.com/llcawc). Made with <span style="color:red;">❤</span> to beautiful architecture
+MIT License ©2024 pasmurno из [llcawc](https://github.com/llcawc). Сделано <span style="color:red;">❤</span> прекрасной архитектуре.

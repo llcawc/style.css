@@ -91,4 +91,4 @@ function clean() {
 export { clean, css, mode, styles, scripts }
 export const copy = parallel(copyMode, copyPrism)
 export const build = series(clean, css, mode, copy)
-export const dev = parallel(styles, scripts)
+export const test = parallel(styles, scripts)

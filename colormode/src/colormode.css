@@ -1,47 +1,59 @@
 /* color mode switcher */
 
 html {
-  --cm-bg: transparent; /* #fff; */
-  --cm-text: #fcd34d; /* #232429; */
+  --cm-color: #232429;
+  --cm-bg: #e4e4e7;
   --cm-focus: transparent; /* rgba(92 173 214 / 70%); */
 }
 
 html.dark {
-  --cm-bg: transparent; /* #232429; */
-  --cm-text: #deded3;
+  --cm-color: #c9c9cf;
+  --cm-bg: #37393f;
   --cm-focus: transparent; /* rgba(0 136 204 / 70%); */
 }
 
 .color-switcher {
   position: absolute;
+  right: 20px;
+  top: 25px;
   line-height: 0.8;
   margin: 0;
   padding: 0;
-  right: 20px;
-  top: 1.6rem;
 }
 
 .color-switcher button {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   margin: 0;
   padding: 0;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 4px solid var(--cm-bg);
-  background-color: var(--cm-bg);
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: 0;
+  background: transparent;
   box-shadow: none;
+  transition: 250ms;
+}
+
+.color-switcher button:hover {
+  background: var(--cm-bg);
+}
+
+.color-switcher button:focus,
+.color-switcher button:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 2px var(--cm-focus);
 }
 
 .color-switcher button svg {
-  position: relative;
   display: block;
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
-  fill: var(--cm-text);
+  width: 20px;
+  height: 20px;
+  fill: var(--cm-color);
 }
 
 @media (width >= 480px) {
@@ -66,12 +78,6 @@ html.dark {
   .color-switcher {
     right: calc(50% - 1280px / 2 + 20px);
   }
-}
-
-.color-switcher button:focus,
-.color-switcher button:focus-visible {
-  outline: 0;
-  box-shadow: 0 0 0 2px var(--cm-focus);
 }
 
 /* hidden class */
