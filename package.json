@@ -1,44 +1,43 @@
 {
   "name": "style.css",
-  "version": "0.0.2",
-  "description": "typical styling of html files / 25.01.02",
+  "version": "0.0.3",
+  "description": "typical styling of html files",
+  "author": "llcawc",
+  "private": true,
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "lint": "stylelint style/src/**/*.css",
-    "lint-fix": "stylelint style/src/**/*.css --fix",
-    "tsc": "tsc -p ./colormode/src",
-    "test": "gulp test",
-    "serve": "passerve -d test",
+    "format": "prettier --write ./src",
+    "lint": "prettier --check ./src && eslint ./src && stylelint src/**/*.css",
+    "fix": "eslint ./src --fix && stylelint src/**/*.css --fix",
+    "styles": "gulp styles",
     "build": "gulp build"
   },
-  "dependencies": {
-    "terser": "^5.37.0",
-    "through2": "^4.0.2"
-  },
   "devDependencies": {
-    "@rollup/plugin-terser": "^0.4.4",
-    "autoprefixer": "^10.4.20",
-    "cssnano": "^7.0.6",
+    "@eslint/js": "^9.22.0",
+    "@types/gulp": "^4.0.17",
+    "@types/bootstrap": "^5.2.10",
+    "@types/node": "^22.13.10",
+    "bootstrap": "^5.3.3",
     "del": "^8.0.0",
+    "eslint": "^9.22.0",
+    "globals": "^16.0.0",
     "gulp": "^5.0.0",
     "gulp-postcss": "^10.0.0",
-    "gulp-ren": "github:llcawc/gulp-ren",
-    "passerve": "^1.1.5",
-    "postcss": "^8.4.49",
+    "licss": "^0.0.8",
+    "postcss": "^8.5.3",
     "postcss-import": "^16.1.0",
     "postcss-inline-svg": "^6.0.0",
-    "prettier": "^3.4.2",
-    "prettier-plugin-embed": "^0.4.15",
+    "prettier": "^3.5.3",
+    "prettier-plugin-embed": "^0.5.0",
     "prettier-plugin-organize-imports": "^4.1.0",
-    "rollup": "^4.29.1",
-    "stylelint": "^16.12.0",
-    "stylelint-config-standard": "^36.0.1",
-    "typescript": "^5.7.2"
-  },
-  "browserslist": [
-    ">= 0.5%",
-    "last 2 major versions",
-    "not dead"
-  ]
+    "stylelint": "^16.16.0",
+    "stylelint-config-clean-order": "^7.0.0",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-config-standard-scss": "^14.0.0",
+    "stylelint-config-twbs-bootstrap": "^16.0.0",
+    "stylelint-scss": "^6.11.1",
+    "tscom": "^0.0.5",
+    "typescript-eslint": "^8.27.0"
+  }
 }

@@ -1,0 +1,43 @@
+code,
+samp,
+time {
+  padding: 2.5px 5px;
+  border-radius: 6px;
+
+  font-family: "JetBrains Mono", "Menlo", "Monaco", "Consolas", "Andale Mono", "Ubuntu Mono", "Courier New", monospace;
+  font-size: 1em;
+  color: var(--code);
+
+  background: var(--background);
+}
+
+a > code,
+a > strong {
+  color: inherit;
+}
+
+pre {
+  border-radius: 6px;
+}
+
+pre > code {
+  overflow-x: auto;
+  display: block;
+  padding: 10px;
+}
+
+var {
+  font-family: monospace;
+  font-style: normal;
+  color: var(--variable);
+}
+
+kbd {
+  padding: 2px 4px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+
+  color: var(--text-main);
+
+  background: var(--background);
+}

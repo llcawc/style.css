@@ -1,0 +1,6 @@
+# Ignore files:
+dist/**/*.*
+vendor/**/*.*
+src/**/*.scss
+src/**/*.css
+**/prism.js

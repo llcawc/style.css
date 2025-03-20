@@ -1,94 +1,106 @@
 // import modules
-import { Buffer } from 'node:buffer'
-import through2 from 'through2'
-import { rollup } from 'rollup'
-import terser from '@rollup/plugin-terser'
-import { deleteAsync as del } from 'del'
+import { deleteAsync } from 'del'
+import { dest, parallel, series, src } from 'gulp'
 import postcss from 'gulp-postcss'
-import cssnano from 'cssnano'
-import autoprefixer from 'autoprefixer'
+import licss, { rename } from 'licss'
 import postcssImport from 'postcss-import'
 import postcssInlineSvg from 'postcss-inline-svg'
-import { minify } from 'terser'
-import rename from 'gulp-ren'
-import gulp from 'gulp'
-const { src, dest, parallel, series, watch } = gulp
+import tscom from 'tscom'
 
-// compile styles task
-function compile(srcdir, distdir) {
-  return src(srcdir)
-    .pipe(postcss([postcssImport(), postcssInlineSvg(), autoprefixer()]))
-    .pipe(dest(distdir))
-    .pipe(postcss([cssnano({ preset: 'default', comments: false })]))
+// style task
+function style() {
+  return src('src/style/*.css')
+    .pipe(postcss([postcssImport(), postcssInlineSvg()]))
+    .pipe(licss({ minify: false }))
+    .pipe(dest('dist/style'))
     .pipe(rename({ suffix: '.min' }))
-    .pipe(dest(distdir))
+    .pipe(licss())
+    .pipe(dest('dist/style'))
 }
 
-// pre style vendors css
-function css(cb) {
-  compile('style/src/*.css', 'style/dist')
-  compile('prism/src/*.css', 'prism/dist')
-  compile('colormode/src/*.css', 'colormode/dist')
-  cb()
+// colormode css
+function colormodeCss() {
+  return src('src/colormode/colormode.css')
+    .pipe(licss({ minify: false }))
+    .pipe(dest('dist/colormode'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(licss())
+    .pipe(dest('dist/colormode'))
 }
 
-//minify js
-function jsmin(options = {}) {
-  return through2.obj(async function (file, _, cb) {
-    if (file.isBuffer()) {
-      const data = file.contents.toString()
-      const result = await minify(data.toString(), options)
-      file.contents = Buffer.from(result.code)
-    }
-    cb(null, file)
+// colormode js
+function colormodeJs() {
+  return tscom({
+    input: 'src/colormode/colormode.ts',
+    dir: 'dist/colormode',
+    format: 'es',
+    minify: false,
   })
 }
 
-// minify colormode
-function mode() {
-  return src('colormode/src/colormode.js')
-    .pipe(jsmin({ format: { comments: false } }))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(dest('colormode/dist'))
+// colormode js
+function switcherJs() {
+  return tscom({
+    input: 'src/switcher/switcher.ts',
+    dir: 'dist/switcher',
+    format: 'es',
+    minify: false,
+  })
 }
 
-// copy
-function copyMode() {
-  return src(['colormode/src/colormode.js']).pipe(dest('colormode/dist'))
+// pcss task
+function pCss() {
+  return src('src/pcss/main.pcss')
+    .pipe(licss({ minify: false }))
+    .pipe(rename({ extname: '.css' }))
+    .pipe(dest('dist/pcss'))
+    .pipe(licss())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest('dist/pcss'))
 }
+
+// prism css
+function prismCss() {
+  return src('src/prism/prism.css')
+    .pipe(licss({ minify: false }))
+    .pipe(dest('dist/prism'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(licss())
+    .pipe(dest('dist/prism'))
+}
+
+// prism js copy
 function copyPrism() {
-  return src(['prism/src/prism.js']).pipe(dest('prism/dist'))
+  return src(['src/prism/prism.js']).pipe(dest('dist/prism'))
 }
 
-// styles task
-function styles() {
-  return src('test/css/base.css')
-    .pipe(postcss([postcssImport()]))
-    .pipe(postcss([cssnano({ preset: 'default', comments: false })]))
-    .pipe(rename({ basename: 'style.css' }))
-    .pipe(dest('test/css'))
+// sass task
+function sass() {
+  return src('src/sass/main.sass')
+    .pipe(licss({ minify: false }))
+    .pipe(dest('dist/sass'))
+    .pipe(licss())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest('dist/sass'))
 }
 
-// assemble bandle js task
-async function scripts() {
-  const bundle = await rollup({
-    input: 'test/js/base.js',
-  })
-  await bundle.write({
-    file: 'test/js/main.js',
-    format: 'iife',
-    name: 'main',
-    plugins: [terser({ format: { comments: false } })],
-  })
+// scss task
+function scss() {
+  return src('src/scss/main.scss')
+    .pipe(licss({ minify: false }))
+    .pipe(dest('dist/scss'))
+    .pipe(licss())
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(dest('dist/scss'))
 }
 
 // clean task
 function clean() {
-  return del(['colormode/dist/*', 'prism/dist/*', 'style/dist/*'])
+  return deleteAsync('dist')
 }
 
 // export
-export { clean, css, mode, styles, scripts }
-export const copy = parallel(copyMode, copyPrism)
-export const build = series(clean, css, mode, copy)
-export const test = parallel(styles, scripts)
+export { clean, colormodeCss, colormodeJs, copyPrism, pCss, prismCss, sass, scss, style, switcherJs }
+export const copy = parallel(copyPrism)
+export const styles = parallel(colormodeCss, pCss, prismCss, sass, scss, style)
+export const build = series(clean, colormodeJs, switcherJs, styles, copy)
