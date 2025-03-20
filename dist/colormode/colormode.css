@@ -1,0 +1,81 @@
+:root {
+  --cm-color: #232429;
+  --cm-bg: #e4e4e7;
+  --cm-bg-hover: #ddd;
+}
+
+.dark {
+  --cm-color: #c9c9cf;
+  --cm-bg: #37393f;
+  --cm-bg-hover: #444;
+}
+
+.color-switcher {
+  margin: 0;
+  padding: 0;
+  line-height: .8;
+  position: absolute;
+  top: 25px;
+  right: 20px;
+}
+
+.color-switcher button {
+  cursor: pointer;
+  background: var(--cm-bg);
+  width: 32px;
+  height: 32px;
+  box-shadow: none;
+  border: 0;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  transition: all .25s;
+  display: flex;
+}
+
+.color-switcher button:hover {
+  background: var(--cm-bg-hover);
+}
+
+.color-switcher button:focus, .color-switcher button:focus-visible {
+  box-shadow: none;
+  outline: 0;
+}
+
+.color-switcher button svg {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+
+@media (min-width: 480px) {
+  .color-switcher {
+    right: calc(50% - 220px);
+  }
+}
+
+@media (min-width: 768px) {
+  .color-switcher {
+    right: calc(50% - 364px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .color-switcher {
+    right: calc(50% - 492px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .color-switcher {
+    right: calc(50% - 620px);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
