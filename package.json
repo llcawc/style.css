@@ -10,17 +10,18 @@
     "format": "prettier --write ./src",
     "lint": "prettier --check ./src && eslint ./src && stylelint src/**/*.css",
     "fix": "eslint ./src --fix && stylelint src/**/*.css --fix",
+    "scripts": "gulp scripts",
     "styles": "gulp styles",
     "build": "gulp build"
   },
   "devDependencies": {
-    "@eslint/js": "^9.22.0",
+    "@eslint/js": "^9.24.0",
     "@types/gulp": "^4.0.17",
     "@types/bootstrap": "^5.2.10",
-    "@types/node": "^22.13.10",
-    "bootstrap": "^5.3.3",
+    "@types/node": "^22.14.0",
+    "bootstrap": "^5.3.5",
     "del": "^8.0.0",
-    "eslint": "^9.22.0",
+    "eslint": "^9.24.0",
     "globals": "^16.0.0",
     "gulp": "^5.0.0",
     "gulp-postcss": "^10.0.0",
@@ -31,13 +32,13 @@
     "prettier": "^3.5.3",
     "prettier-plugin-embed": "^0.5.0",
     "prettier-plugin-organize-imports": "^4.1.0",
-    "stylelint": "^16.16.0",
+    "stylelint": "^16.17.0",
     "stylelint-config-clean-order": "^7.0.0",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "stylelint-config-twbs-bootstrap": "^16.0.0",
     "stylelint-scss": "^6.11.1",
     "tscom": "^0.0.5",
-    "typescript-eslint": "^8.27.0"
+    "typescript-eslint": "^8.29.0"
   }
 }

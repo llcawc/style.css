@@ -17,12 +17,15 @@ function switcher() {
         const storedTheme = getStoredTheme();
         return storedTheme ? storedTheme : darkModeMediaQuery.matches ? 'dark' : 'light';
     };
-    // взять корень документа один раз
-    const html = document.documentElement;
+    // Получить текущee представление системы
+    const getPrefferedTheme = () => {
+        const storedTheme = getStoredTheme() ?? 'auto';
+        return storedTheme === 'auto' ? 'auto' : getCurrentTheme();
+    };
     // Установить цветовую тему в атрибуте тега 'html'
     const setTheme = (theme) => {
         theme = theme === 'auto' ? (darkModeMediaQuery.matches ? 'dark' : 'light') : theme;
-        return html.setAttribute('data-bs-theme', theme);
+        return document.documentElement.setAttribute('data-bs-theme', theme);
     };
     // Отобразить переключение на пульте управления цветовыми темами
     const showActiveTheme = (theme, focus = false) => {
@@ -48,23 +51,29 @@ function switcher() {
         }
     };
     // установка схемы при первом запуске
+    showActiveTheme(getPrefferedTheme());
     setTheme(getCurrentTheme());
-    showActiveTheme(getCurrentTheme());
     // установка обработчика смены тем при ручном выборе
     document.querySelectorAll('[data-theme-value]').forEach((toggle) => {
         toggle.addEventListener('click', () => {
-            const theme = toggle.getAttribute('data-theme-value') ?? 'auto';
-            setStoredTheme(theme);
-            setTheme(theme);
+            let theme = toggle.getAttribute('data-theme-value');
+            if (!theme) {
+                theme = getPrefferedTheme();
+            }
             showActiveTheme(theme, true);
+            setTheme(theme);
+            if (theme === 'auto') {
+                removeStoredTheme();
+            }
+            else {
+                setStoredTheme(theme);
+            }
         });
     });
     // установка обработчика смены тем в системе
     darkModeMediaQuery.addEventListener('change', () => {
-        removeStoredTheme();
         const theme = getCurrentTheme();
         setTheme(theme);
-        showActiveTheme(theme, true);
     });
 }
 // установка скрипта после полной загрузки страницы

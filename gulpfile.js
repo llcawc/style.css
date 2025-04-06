@@ -38,11 +38,41 @@ function colormodeJs() {
   })
 }
 
-// colormode js
+// switcher css
+function switcherCss() {
+  return src('src/switcher/*.sass')
+    .pipe(licss({ minify: false }))
+    .pipe(dest('dist/switcher'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(licss())
+    .pipe(dest('dist/switcher'))
+}
+
+// switcher js
 function switcherJs() {
   return tscom({
     input: 'src/switcher/switcher.ts',
     dir: 'dist/switcher',
+    format: 'es',
+    minify: false,
+  })
+}
+
+// scheme css
+function schemeCss() {
+  return src('src/scheme/*.sass')
+    .pipe(licss({ minify: false }))
+    .pipe(dest('dist/scheme'))
+    .pipe(rename({ suffix: '.min' }))
+    .pipe(licss())
+    .pipe(dest('dist/scheme'))
+}
+
+// scheme js
+function schemeJs() {
+  return tscom({
+    input: 'src/scheme/*.ts',
+    dir: 'dist/scheme',
     format: 'es',
     minify: false,
   })
@@ -100,7 +130,8 @@ function clean() {
 }
 
 // export
-export { clean, colormodeCss, colormodeJs, copyPrism, pCss, prismCss, sass, scss, style, switcherJs }
+export { clean }
 export const copy = parallel(copyPrism)
-export const styles = parallel(colormodeCss, pCss, prismCss, sass, scss, style)
-export const build = series(clean, colormodeJs, switcherJs, styles, copy)
+export const styles = parallel(colormodeCss, switcherCss, schemeCss, pCss, prismCss, sass, scss, style)
+export const scripts = parallel(colormodeJs, switcherJs, schemeJs)
+export const build = series(clean, scripts, styles, copy)
