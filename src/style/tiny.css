@@ -1,7 +1,0 @@
-/**
- * Made based on water.css.
- * Use the "@media (prefers-color-scheme: ***)" to enable the dark scheme.
- */
-
-@import url("./parts/_varmedia.css");
-@import url("./parts/_core.css");

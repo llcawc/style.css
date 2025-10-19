@@ -1,3 +1,5 @@
 dist/**/*.*
 vendor/**/*.*
 test/**/*.*
+source/style/*.min.css
+source/prism/prism.css

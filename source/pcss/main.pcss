@@ -1,0 +1,24 @@
+/* main.pcss */
+@import "style.pcss";
+@import "colormode.pcss";
+@import "fonts.pcss";
+@import "bootstrap-icons.pcss";
+/* custom code */
+
+.btn {
+  display: inline-flex;
+  gap: 0 4px;
+  align-items: center;
+
+  padding: 8px 24px;
+  border: 1px solid var(--links);
+  border-radius: 6px;
+
+  transition: 200ms ease;
+
+  &:hover {
+    color: white;
+    text-decoration: none;
+    background-color: var(--links);
+  }
+}

@@ -1,6 +1,8 @@
 # Ignore files:
 dist/**/*.*
+source/**/*.scss
+source/**/*.css
 vendor/**/*.*
-src/**/*.scss
-src/**/*.css
 **/prism.js
+test-css/**/*.*
+test-scss/**/*.*

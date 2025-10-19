@@ -1,0 +1,39 @@
+html {
+  scrollbar-color: var(--scrollbar-thumb) var(--background-body);
+  scrollbar-width: thin;
+}
+
+body {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 0 10px;
+
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  color: var(--text-main);
+  text-rendering: optimizelegibility;
+  overflow-wrap: break-word;
+
+  background: var(--background-body);
+}
+
+button,
+input,
+textarea {
+  transition: background-color var(--animation-duration) linear, border-color var(--animation-duration) linear,
+    color var(--animation-duration) linear, box-shadow var(--animation-duration) linear,
+    transform var(--animation-duration) ease;
+}
+
+
+footer {
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+body > footer {
+  margin-top: 40px;
+}

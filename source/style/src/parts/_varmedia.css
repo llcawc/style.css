@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+:root {
+  --background-body: #fff;
+  --background: #efefef;
+  --background-alt: #f7f7f7;
+  --selection: #2080df;
+  --text-selection: #f1f1f1;
+  --text-main: #363636;
+  --text-bright: #000;
+  --text-muted: #70777f;
+  --links: #0076d1;
+  --focus: rgb(16 160 200 / 65%);
+  --border: #dbdbdb;
+  --code: #000;
+  --button-base: #d0cfcf;
+  --button-hover: #9c9c9c;
+  --scrollbar-thumb: #ababab;
+  --scrollbar-thumb-hover: var(--button-hover);
+  --form-placeholder: #949494;
+  --form-text: #1d1d1d;
+  --variable: #39a33c;
+  --highlight: #ff0;
+  --animation-duration: 150ms;
+  --select-arrow: svg-load("../assets/select-arrow.svg", fill: #161f27);
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-body: #1c1d21;
+    --background: #232429;
+    --background-alt: #16191d;
+    --selection: rgb(32 128 223 / 70%);
+    --text-selection: none;
+    --text-main: #dbdbdb;
+    --text-bright: #fff;
+    --text-muted: #a9b1ba;
+    --links: #42adff;
+    --focus: rgb(0 136 204 / 70%);
+    --border: #707b86;
+    --code: #ffbe85;
+    --button-base: #101418;
+    --button-hover: #080a0c;
+    --scrollbar-thumb: var(--button-hover);
+    --scrollbar-thumb-hover: #245c89;
+    --form-placeholder: #a9a9a9;
+    --form-text: #fff;
+    --variable: #d941e2;
+    --highlight: #efdb43;
+    --animation-duration: 150ms;
+    --select-arrow: svg-load("../assets/select-arrow.svg", fill: #efefef);
+
+    color-scheme: dark;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
