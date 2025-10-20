@@ -19,7 +19,7 @@
   "vsicons.associations.files": [{ "icon": "postcss", "extensions": ["pcss"], "format": "svg" }],
   "vsicons.associations.folders": [{ "icon": "style", "extensions": ["pcss"], "format": "svg", "overrides": "pcss" }],
 
-  "stylelint.configFile": ".stylelintrc.json",
+  "stylelint.configFile": ".stylelintrc.css.json",
 
   "stylelint.validate": ["scss", "css", "postcss"],
   "eslint.validate": ["typescript", "javascript"],
@@ -29,7 +29,6 @@
     "source.fixAll.eslint": "explicit"
   },
 
-  "javascript.inlayHints.enumMemberValues.enabled": true,
   "javascript.inlayHints.functionLikeReturnTypes.enabled": true,
   "javascript.inlayHints.parameterNames.enabled": "literals",
   "javascript.inlayHints.parameterTypes.enabled": true,

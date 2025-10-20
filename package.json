@@ -1,6 +1,6 @@
 {
   "name": "style.css",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "typical styling of html files",
   "author": "llcawc",
   "private": true,
@@ -8,9 +8,10 @@
   "type": "module",
   "scripts": {
     "format": "prettier --write source",
-    "lint": "prettier --check source && eslint source && stylelint source/**/*.css",
-    "fix": "eslint source --fix && stylelint source/**/*.css --fix",
-    "test": "gulp testCss"
+    "pretti": "prettier --check source",
+    "lint": "eslint source && stylelint --config .stylelintrc.css.json source/**/*.css",
+    "fix": "eslint source --fix && stylelint --config .stylelintrc.css.json source/**/*.css --fix",
+    "test": "gulp css"
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",

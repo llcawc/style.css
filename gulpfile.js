@@ -4,18 +4,15 @@ import autoprefixer from 'autoprefixer'
 import cssnanoPlugin from 'cssnano'
 import { dest, src } from 'gulp'
 import postcss from 'gulp-postcss'
-// import licss from 'licss'
 import postcssImport from 'postcss-import'
 import postcssInlineSvg from 'postcss-inline-svg'
 import { compile } from 'tscom'
 import rename from 'xren'
-export { testCss } from './test-css/test-css.js'
-export { testSass } from './test-sass/test-sass.js'
-export { scheme } from './test-scheme/scheme.js'
-
-function test() {
-  return src(['test-sass/styles/main.sass']).pipe(pscss()).pipe(dest('test'))
-}
+// export tasks
+export { css } from './tests/css.js'
+export { pcss } from './tests/pcss.js'
+export { sass } from './tests/sass.js'
+export { scss } from './tests/scss.js'
 
 // compile style from parts
 function compileStyle() {
@@ -60,7 +57,7 @@ async function switcher() {
 }
 
 // switcher
-async function sche() {
+async function scheme() {
   return await compile({
     input: 'source/scheme/scheme.ts',
     dir: 'source/scheme',
@@ -70,4 +67,4 @@ async function sche() {
 }
 
 // export
-export { colormode, compileStyle, minifyStyle, prism, sche, switcher, test }
+export { colormode, compileStyle, minifyStyle, prism, scheme, switcher }
