@@ -5,13 +5,19 @@
   "printWidth": 120,
   "overrides": [
     {
-      "files": ["./**/*.{ts,js,jsx,mjs,cjs}"],
+      "files": ["./**/*.{ts,tsx,js,jsx,mjs,cjs}"],
       "options": {
         "semi": false,
         "singleQuote": true,
         "trailingComma": "es5",
         "bracketSpacing": true,
         "plugins": ["prettier-plugin-embed", "prettier-plugin-organize-imports"]
+      }
+    },
+    {
+      "files": ["tsconfig.json", "tsconfig.*.json"],
+      "options": {
+        "parser": "jsonc"
       }
     }
   ]

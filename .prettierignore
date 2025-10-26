@@ -2,6 +2,7 @@
 dist/**/*.*
 source/**/*.scss
 source/**/*.css
+source/scheme/scheme*.html
 vendor/**/*.*
 **/prism.js
 test-css/**/*.*
