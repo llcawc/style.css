@@ -15,11 +15,11 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.38.0",
-    "@pasmurno/pscss": "^0.0.2",
+    "@pasmurno/pscss": "^0.0.3",
     "@pasmurno/serve": "^0.0.4",
     "@types/bootstrap": "^5.2.10",
-    "@types/gulp": "^4.0.17",
-    "@types/node": "^24.8.1",
+    "@types/gulp": "^4.0.18",
+    "@types/node": "^24.9.1",
     "autoprefixer": "^10.4.21",
     "bootstrap": "^5.3.8",
     "cssnano": "^7.1.1",
@@ -42,7 +42,7 @@
     "stylelint-config-twbs-bootstrap": "^16.1.0",
     "stylelint-scss": "^6.12.1",
     "tscom": "^0.0.7",
-    "typescript-eslint": "^8.46.1",
+    "typescript-eslint": "^8.46.2",
     "xren": "^0.0.1"
   }
 }

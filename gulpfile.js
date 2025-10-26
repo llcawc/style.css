@@ -38,7 +38,7 @@ function prism(cb) {
 
 // colormode
 async function colormode() {
-  return await compile({
+  await compile({
     input: 'source/colormode/colormode.ts',
     dir: 'source/colormode',
     format: 'es',
@@ -48,7 +48,7 @@ async function colormode() {
 
 // switcher
 async function switcher() {
-  return await compile({
+  await compile({
     input: 'source/switcher/switcher.ts',
     dir: 'source/switcher',
     format: 'es',
@@ -58,7 +58,7 @@ async function switcher() {
 
 // switcher
 async function scheme() {
-  return await compile({
+  await compile({
     input: 'source/scheme/scheme.ts',
     dir: 'source/scheme',
     format: 'es',
