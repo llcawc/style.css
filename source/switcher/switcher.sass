@@ -2,11 +2,10 @@
  * _switcher.sass - стили переключателя цветовых тем
  */
 
-// Color
-$accent: #f58220 // акцентный цвет для выделения
-$textcolor: #6c757d // основной цвет текста gray-600
-$darkcolor: #212529 // основной темный цвет gray-900
-$lightcolor: #fff // основной светлый цвет white
+// $accent: #6f42c1 // акцентный цвет для выделения purple
+// $textcolor: #6c757d // основной цвет текста gray-600
+// $darkcolor: #212529 // основной темный цвет gray-900
+// $lightcolor: #fff // основной светлый цвет white
 
 .switcher-dropdown
   display: flex
@@ -31,8 +30,8 @@ $lightcolor: #fff // основной светлый цвет white
   border-radius: .375rem
 
   text-decoration: none
-
   background-color: transparent
+
   &::after
     color: $textcolor
 
@@ -44,7 +43,6 @@ $lightcolor: #fff // основной светлый цвет white
   right: 0
   left: auto
 
-  min-height: 7rem
   padding: .125rem
   border-radius: .5rem
 
@@ -54,13 +52,16 @@ $lightcolor: #fff // основной светлый цвет white
   .dropdown-item
     border-radius: .375rem
     color: $darkcolor
+
     &:active
+      color: $lightcolor
       background-color: $accent
 
   .active
     font-weight: 700
     color: $lightcolor
     background-color: $accent
+
     .icon
       display: block !important
 

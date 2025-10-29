@@ -33,6 +33,7 @@
   &::after {
     color: $textcolor;
   }
+
   svg {
     color: $textcolor;
   }
@@ -54,9 +55,12 @@
 .dropdown-item {
   border-radius: .375rem;
   color: $darkcolor;
+
   &:active {
+    color: $lightcolor;
     background-color: $accent;
   }
+
   &.active {
     font-weight: 700;
     color: $lightcolor;
